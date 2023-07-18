@@ -1,8 +1,8 @@
 const player = {
   currentHealth: 10,
-  attackPower: 1,
-  gold: 0,
-  potions: 0
+  attackPower: 10,
+  gold: 100,
+  potions: 10,
 }
 
 function healPlayer() {
