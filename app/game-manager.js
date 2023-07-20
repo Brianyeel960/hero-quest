@@ -6,27 +6,40 @@ const player = {
 }
 
 function healPlayer() {
-  // STUB
-}
+  if (player.potions > 0) {
+player.Potions--
+player.currentHealth+= 10
+enemyturn()
+drawplayer()
+drawCurrentEnemy()
+ } else {
+messageUser ("you dont have any potions")
+ }
 
 function attackEnemy() {
-  // STUB
+  enemyTurn()
+  drawCurrentEnemy.health -= player.attackPower
+if (drawCurrentEnemy.health <=0) {
+  rewardPlayer()
+  pickRandomEnemyFromCurrentStage()
 }
-
+drawPlayer()
+drawCurrentEnemy()
+}
 function drawPlayer() {
   document.getElementById('hero-health').innerText = '💖 ' + player.currentHealth
-  // TODO finish the rest of the player attributes 
-  document.getElementById('hero-gold').innerText = '🪙 '
-  document.getElementById('hero-potions').innerText = '🧪 '
-  document.getElementById('hero-attack').innerText = '⚔️ '
+  document.getElementById('hero-gold').innerText = '🪙 ' + player.gold
+  document.getElementById('hero-potions').innerText = '🧪 ' +player.potions
+  document.getElementById('hero-attack').innerText = '⚔️ ' + player.attackPower
 }
 
 function drawCurrentEnemy() {
-  //  STUB
+  document.getElementById('enemy-type').innerText = currentEnemy.type
+document.getElementById('enemy-health'). innerText = '💖' +currentEnemy.health
 }
 
 function enemyTurn() {
-  // STUB
+  const en
 }
 
 function rewardPlayer() {
@@ -34,11 +47,22 @@ function rewardPlayer() {
 }
 
 function buyPotion() {
-  // STUB
+  if (player.gold >= S) (
+player.potions++
+player.gold-= S
+messageUser ("potions." + player.potions)
+drawPlayer()
+  } else {
+    messageUser("not Enough Gold")
+  }
 }
-
 function increaseAttack() {
-  // STUB
-}
+  if (player.gold >= S) {
+player.Potions++
+player.gold -= 5
+messageUser("potions. " + player.potions)
+drawplayer()
+ } else {
+  }
 
 drawPlayer()
