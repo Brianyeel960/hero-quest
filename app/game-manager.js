@@ -15,7 +15,7 @@ drawCurrentEnemy()
  } else {
 messageUser ("you dont have any potions")
  }
-
+}
 function attackEnemy() {
   enemyTurn()
   drawCurrentEnemy.health -= player.attackPower
@@ -39,17 +39,28 @@ document.getElementById('enemy-health'). innerText = '💖' +currentEnemy.health
 }
 
 function enemyTurn() {
-  const en
+  const enemyDamage = Math.floor(Math.random()* currentEnemy.maxAttackPower)
+  player.currentHealth -=enemyDamage
+  messageUser ("💔 took " + enemyDamage + "damage")
+  if (player.currentHealth <= 0) {
+    messageuser ("you have died")
+    showGameOver()
+  }
 }
 
 function rewardPlayer() {
-  // STUB
+  player.gold += currentEnemy.gold
+  if (player.gold >= 1000) {
+    messageUser("congratulations you are rich enough to stop adveturing")
+    showVictory()
+  }
+
 }
 
 function buyPotion() {
-  if (player.gold >= S) (
+  if (player.gold >= 5) {
 player.potions++
-player.gold-= S
+player.gold-= 5
 messageUser ("potions." + player.potions)
 drawPlayer()
   } else {
@@ -57,12 +68,12 @@ drawPlayer()
   }
 }
 function increaseAttack() {
-  if (player.gold >= S) {
-player.Potions++
-player.gold -= 5
-messageUser("potions. " + player.potions)
+  if (player.gold >=10) {
+player.Potions+=5
+player.gold -= 10
+messageUser ("attack up")
 drawplayer()
- } else {
-  }
-
-drawPlayer()
+ 
+} else {
+  messageUser ("Not Enough Gold")
+}
